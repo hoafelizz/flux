@@ -1,33 +1,35 @@
 import AppDispatcher from '../dispathcer/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import {EventEmitter} from 'events';
+let assign = require('object-assign');
 
 const CHANGE_EVENT = 'change';
 
 let movies = [];
 let status = null
 
-class AppStore extends EventEmitter{
-    emitChange(){
-        super.emit(CHANGE_EVENT)
-    }
+let AppStore = assign({}, EventEmitter.prototype, {
+  emitChange() {
+    this.emit(CHANGE_EVENT);
+  },
 
-    addChangeListener(callback){
-        this.on(CHANGE_EVENT, callback);
-    }
+  addChangeListener: function(callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
+  
+  removeChangeListener: function(callback) {
+    this.removeListener(CHANGE_EVENT, callback);
+  },
 
-    removeChangeListener(callback){
-        this.removeListener(CHANGE_EVENT, callback);
-    }
+  getMovies() {
+    return movies;
+  },
 
-    getMovies(){
-        return movies;
-    }
+  getStatus() {
+    return status;
+  }
 
-    getStatus(){
-        return status;
-    }
-}
+})
 
 export default AppStore;
 
