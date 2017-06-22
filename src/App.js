@@ -32,11 +32,11 @@ class App extends Component {
   }
 
   componentWillMount() {
-    AppStore.addChangeListener(this.listennerStore());
+    AppStore.addChangeListener(this.listennerStore);
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this.listennerStore());
+    AppStore.removeChangeListener(this.listennerStore);
   }
 
   render() {

@@ -7,7 +7,7 @@ class AppDispatcher extends Dispatcher{
             source: 'VIEW_ACTION',
             action: action
         }
-        super.dispatch(action);
+        super.dispatch(payload);
     }
 }
 
