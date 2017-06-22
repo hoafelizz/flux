@@ -2,7 +2,7 @@ import AppDispatcher from '../dispathcer/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import appAPI from '../utils/AppAPI';
 
-class AppActions{
+let AppActions = {
     searchMovies(movie){
         appAPI.searchMovies(movie, (err, data)=> {
             if(!err){
