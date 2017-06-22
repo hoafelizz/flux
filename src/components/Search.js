@@ -3,7 +3,7 @@ import React from 'react';
 class Search extends React.Component{
     constructor(props){
         super(props);
-        
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onSubmit(e){
