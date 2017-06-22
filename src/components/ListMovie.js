@@ -18,3 +18,5 @@ class ListMovie extends React.Component{
         )
     }
 }
+
+export default ListMovie;
